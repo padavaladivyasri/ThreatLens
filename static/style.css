@@ -1,0 +1,251 @@
+/* ===========================
+   ThreatLens v2.0 Styles
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* ===========================
+   Login Page
+=========================== */
+
+.login-body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-box{
+    width:380px;
+    background:#1e293b;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 20px cyan;
+}
+
+.login-box h1{
+    color:#22d3ee;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    margin-bottom:20px;
+    color:#cbd5e1;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.error{
+    color:#ff4d4d;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+/* ===========================
+   Navigation Bar
+=========================== */
+
+.navbar{
+    background:#111827;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 2px 10px black;
+}
+
+.navbar h2{
+    color:#22d3ee;
+}
+
+/* ===========================
+   Dashboard
+=========================== */
+
+.dashboard{
+    width:90%;
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 0 15px rgba(0,255,255,.2);
+}
+
+.card h2{
+    color:#22d3ee;
+    margin-bottom:20px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+button{
+    background:#06b6d4;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#0891b2;
+    transform:scale(1.03);
+}
+
+/* ===========================
+   File Upload
+=========================== */
+
+input[type=file]{
+    background:white;
+    color:black;
+    padding:10px;
+    border-radius:8px;
+    width:100%;
+}
+
+/* ===========================
+   Result Table
+=========================== */
+
+.result-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.result-table th{
+    background:#0891b2;
+    padding:15px;
+    text-align:left;
+}
+
+.result-table td{
+    background:#0f172a;
+    padding:15px;
+}
+
+.result-table tr{
+    border-bottom:1px solid #334155;
+}
+
+/* ===========================
+   Threat Level
+=========================== */
+
+.safe{
+    background:#16a34a;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.warning{
+    background:#f59e0b;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.danger{
+    background:#dc2626;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* ===========================
+   List
+=========================== */
+
+ul{
+    margin-left:25px;
+}
+
+li{
+    margin:10px 0;
+    font-size:18px;
+}
+
+/* ===========================
+   Images
+=========================== */
+
+img{
+    width:100%;
+    border-radius:10px;
+    margin-top:20px;
+    box-shadow:0 0 15px cyan;
+}
+
+/* ===========================
+   Links
+=========================== */
+
+a{
+    color:#22d3ee;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+.login-box{
+    width:90%;
+}
+
+.dashboard{
+    width:95%;
+}
+
+button{
+    width:100%;
+}
+
+.result-table th,
+.result-table td{
+    font-size:14px;
+    padding:10px;
+}
+
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>ThreatLens Report</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>🛡 ThreatLens Security Report</h2>
+</div>
+
+<div class="dashboard">
+
+    <div class="card">
+
+        <h2>📊 Analysis Summary</h2>
+
+        <table class="result-table">
+
+            <tr>
+                <th>Total Log Entries</th>
+                <td>{{ result.total_logs }}</td>
+            </tr>
+
+            <tr>
+                <th>Failed Login Attempts</th>
+                <td>{{ result.failed_logins }}</td>
+            </tr>
+
+            <tr>
+                <th>Admin Access Attempts</th>
+                <td>{{ result.admin_access }}</td>
+            </tr>
+
+            <tr>
+                <th>404 Errors</th>
+                <td>{{ result.error_404 }}</td>
+            </tr>
+
+            <tr>
+                <th>500 Errors</th>
+                <td>{{ result.error_500 }}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>🚨 Threat Level</h2>
+
+        {% if result.threat_level == "High" %}
+
+            <div class="danger">
+                🔴 HIGH RISK
+            </div>
+
+        {% elif result.threat_level == "Medium" %}
+
+            <div class="warning">
+                🟡 MEDIUM RISK
+            </div>
+
+        {% else %}
+
+            <div class="safe">
+                🟢 LOW RISK
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>🌐 Suspicious IP Addresses</h2>
+
+        <ul>
+
+        {% for ip in result.suspicious_ips %}
+            <li>{{ ip }}</li>
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>📊 Security Chart</h2>
+
+        <img src="{{ url_for('static', filename='charts/chart.png') }}"
+             width="700">
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <a href="/reports/Security_Report.pdf">
+            <button>📄 Download PDF Report</button>
+        </a>
+
+        <br><br>
+
+        <a href="/home">
+            <button>Analyze Another Log</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

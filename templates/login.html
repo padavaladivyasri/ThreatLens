@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ThreatLens Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="login-body">
+
+<div class="login-box">
+
+<h1>🛡 ThreatLens</h1>
+
+<p>Intelligent Security Log Analyzer</p>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+<form action="/dashboard" method="POST">
+
+<input type="text"
+name="username"
+placeholder="Username"
+required>
+
+<input type="password"
+name="password"
+placeholder="Password"
+required>
+
+<button type="submit">
+Login
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
