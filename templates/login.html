@@ -1,44 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ThreatLens Login</title>
+    <title>ThreatLens | Secure Login</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 </head>
 
-<body class="login-body">
+<body class="login-page">
 
-<div class="login-box">
+    <div class="login-background">
 
-<h1>🛡 ThreatLens</h1>
+        <div class="grid-overlay"></div>
 
-<p>Intelligent Security Log Analyzer</p>
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
 
-{% if error %}
-<p class="error">{{ error }}</p>
-{% endif %}
+        <div class="login-container">
 
-<form action="/dashboard" method="POST">
+            <div class="login-brand">
 
-<input type="text"
-name="username"
-placeholder="Username"
-required>
+                <div class="shield-icon">
+                    🛡️
+                </div>
 
-<input type="password"
-name="password"
-placeholder="Password"
-required>
+                <h1>Threat<span>Lens</span></h1>
 
-<button type="submit">
-Login
-</button>
+                <p>Intelligent Security Log Analyzer</p>
 
-</form>
+            </div>
 
-</div>
+
+            <div class="login-card">
+
+                <div class="login-header">
+
+                    <h2>Welcome Back</h2>
+
+                    <p>
+                        Sign in to access your security dashboard
+                    </p>
+
+                </div>
+
+
+                {% if error %}
+
+                <div class="login-error">
+                    ⚠️ {{ error }}
+                </div>
+
+                {% endif %}
+
+
+                <form action="/dashboard" method="POST">
+
+                    <div class="input-group">
+
+                        <label>Username</label>
+
+                        <div class="input-wrapper">
+
+                            <span>👤</span>
+
+                            <input
+                                type="text"
+                                name="username"
+                                placeholder="Enter username"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Password</label>
+
+                        <div class="input-wrapper">
+
+                            <span>🔐</span>
+
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Enter password"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="login-button" type="submit">
+
+                        <span>Secure Login</span>
+
+                        <span>→</span>
+
+                    </button>
+
+                </form>
+
+
+                <div class="security-note">
+
+                    <span class="status-dot"></span>
+
+                    Secure Security Environment
+
+                </div>
+
+            </div>
+
+
+            <div class="login-footer">
+
+                <p>
+                    © 2026 ThreatLens • Cybersecurity Analysis Platform
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 </html>

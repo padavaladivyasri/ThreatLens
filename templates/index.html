@@ -1,42 +1,301 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>ThreatLens</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ThreatLens | Analyze Logs</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
 </head>
 
-<body>
 
-<div class="dashboard">
+<body class="dashboard-page">
 
-<h1>ThreatLens</h1>
 
-<p>Upload your security log file.</p>
+<aside class="sidebar">
 
-<form action="/analyze"
-method="POST"
-enctype="multipart/form-data">
+    <div class="sidebar-logo">
 
-<input
-type="file"
-name="logfile"
-required>
+        <div class="logo-icon">
+            🛡️
+        </div>
 
-<br><br>
+        <div>
 
-<button>
+            <h2>Threat<span>Lens</span></h2>
 
-Analyze Log
+            <small>Security Platform</small>
 
-</button>
+        </div>
 
-</form>
+    </div>
 
-</div>
+
+    <nav class="sidebar-nav">
+
+        <a href="/dashboard"
+           class="nav-item">
+
+            <span>▣</span>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="/home"
+           class="nav-item active">
+
+            <span>📂</span>
+
+            Analyze Logs
+
+        </a>
+
+
+        <div class="nav-section">
+            SECURITY TOOLS
+        </div>
+
+
+        <div class="nav-item disabled">
+            <span>📊</span>
+            Analytics
+        </div>
+
+
+        <div class="nav-item disabled">
+            <span>🚨</span>
+            Threat Monitor
+        </div>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            System Online
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<main class="main-content">
+
+
+<header class="topbar">
+
+    <div>
+
+        <p class="breadcrumb">
+            Threat Analysis
+        </p>
+
+        <h1>
+            Analyze Security Logs
+        </h1>
+
+    </div>
+
+
+    <div class="live-status">
+
+        <span class="status-dot"></span>
+
+        LIVE
+
+    </div>
+
+</header>
+
+
+
+<section class="analysis-page">
+
+
+    <div class="analysis-intro">
+
+        <span class="badge">
+            🔍 LOG ANALYZER
+        </span>
+
+        <h2>
+            Detect Security Threats
+        </h2>
+
+        <p>
+            Upload a server security log and ThreatLens
+            will automatically analyze suspicious activities,
+            login attempts, HTTP errors and IP addresses.
+        </p>
+
+    </div>
+
+
+
+    <form action="/analyze"
+          method="POST"
+          enctype="multipart/form-data">
+
+
+        <label class="large-upload-area">
+
+            <input
+                type="file"
+                name="logfile"
+                required
+                onchange="showFileName(this)">
+
+
+            <div class="large-upload-content">
+
+                <div class="large-upload-icon">
+                    📂
+                </div>
+
+                <h3>
+                    Upload Security Log
+                </h3>
+
+                <p>
+                    Click here to select your log file
+                </p>
+
+                <span>
+                    Supported: .log, .txt
+                </span>
+
+                <div id="file-name"
+                     class="selected-file">
+                </div>
+
+            </div>
+
+        </label>
+
+
+
+        <button class="analyze-button full-button">
+
+            🔍 Start Threat Analysis
+
+            <span>→</span>
+
+        </button>
+
+    </form>
+
+
+
+    <div class="analysis-info-grid">
+
+
+        <div class="info-box">
+
+            <div>🔐</div>
+
+            <h3>
+                Failed Logins
+            </h3>
+
+            <p>
+                Detect repeated authentication failures.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div>👤</div>
+
+            <h3>
+                Admin Access
+            </h3>
+
+            <p>
+                Identify suspicious administrator access.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div>🌐</div>
+
+            <h3>
+                HTTP Errors
+            </h3>
+
+            <p>
+                Detect 404 and 500 server errors.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div>🚨</div>
+
+            <h3>
+                Threat Level
+            </h3>
+
+            <p>
+                Classify overall security risk.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+function showFileName(input) {
+
+    const fileName =
+        document.getElementById("file-name");
+
+    if (input.files.length > 0) {
+
+        fileName.innerHTML =
+            "✓ Selected: " + input.files[0].name;
+
+    }
+
+}
+
+</script>
+
 
 </body>
 </html>
